@@ -1,10 +1,12 @@
 package uk.co.envyware.battle.extension;
 
 import com.pixelmonmod.pixelmon.api.config.api.yaml.YamlConfigFactory;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import uk.co.envyware.battle.extension.config.ModDetectionConfig;
+import uk.co.envyware.battle.extension.listener.ModDetectionListener;
 
 import java.io.IOException;
 
@@ -20,6 +22,7 @@ public class EnvyModDetection {
 
     public EnvyModDetection() {
         instance = this;
+        MinecraftForge.EVENT_BUS.register(new ModDetectionListener());
         this.reload();
     }
 
