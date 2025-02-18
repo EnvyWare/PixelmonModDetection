@@ -175,21 +175,3 @@ javadoc {
         links 'https://reforged.gg/docs/1201/'
     }
 }
-
-sourceSets {
-    main {
-        ext.refMap = "mixins.envybattleextension.refmap.json"
-    }
-}
-
-mixin {
-    add sourceSets.main, "mixins.envybattleextension.refmap.json"
-}
-
-jar {
-    manifest.attributes(
-            'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
-            'TweakOrder': 0,
-            'MixinConfigs' : "mixins.envybattleextension.json"
-    )
-}

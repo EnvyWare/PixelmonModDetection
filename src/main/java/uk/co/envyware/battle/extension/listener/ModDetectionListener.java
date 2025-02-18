@@ -19,7 +19,14 @@ public class ModDetectionListener {
             return;
         }
 
-        for (String blockedClass : EnvyModDetection.getConfig().getBlockedClasses()) {
+        for (String blockedClass : EnvyModDetection.getConfig().getBlockedFiles()) {
+            ResourceLocation resourceLocation = ResourceLocation.tryParse(blockedClass);
+
+            if (resourceLocation == null) {
+                EnvyModDetection.LOGGER.error("Invalid resource location: " + blockedClass);
+                continue;
+            }
+
             party.queryResourceLocationExistence(ResourceLocation.tryParse(blockedClass), result -> {
                 if (result) {
                     EnvyModDetection.LOGGER.info("Player " + event.getPlayer().getName().getString() + " has a banned class: " + blockedClass);
