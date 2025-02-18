@@ -85,6 +85,7 @@ repositories {
     maven { url 'https://repo.lucko.me/' }
     maven { url = "https://repo.aikar.co/content/groups/aikar/" }
     maven { url = "https://jitpack.io" }
+    maven { url = "https://maven.envyware.co.uk/releases" }
     maven {
         name = 'sponge'
         url = 'https://repo.spongepowered.org/maven'
